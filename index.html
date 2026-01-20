@@ -11,6 +11,95 @@
             box-sizing: border-box;
         }
         
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Navigation Menu */
+        .nav-menu {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        .menu-button {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #63cdda 0%, #74b9ff 100%);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(99, 205, 218, 0.4);
+            transition: all 0.3s ease;
+        }
+        
+        .menu-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(99, 205, 218, 0.6);
+        }
+        
+        .menu-button span {
+            display: block;
+            width: 4px;
+            height: 4px;
+            background: white;
+            border-radius: 50%;
+            margin: 3px;
+        }
+        
+        .menu-dots {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .menu-dropdown {
+            position: absolute;
+            top: 60px;
+            right: 0;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            min-width: 220px;
+            overflow: hidden;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+        
+        .menu-dropdown.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .menu-dropdown a {
+            display: block;
+            padding: 15px 20px;
+            color: #2c3e50;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+        
+        .menu-dropdown a:hover {
+            background: linear-gradient(90deg, rgba(99, 205, 218, 0.1) 0%, transparent 100%);
+            border-left-color: #63cdda;
+            padding-left: 25px;
+        }
+        
+        .menu-dropdown a::before {
+            content: '◆';
+            margin-right: 10px;
+            color: #63cdda;
+            font-size: 0.8em;
+        }
+        
         body {
             font-family: 'Georgia', serif;
             line-height: 1.7;
@@ -18,6 +107,8 @@
             background: linear-gradient(135deg, #e8f5f7 0%, #fef5f7 50%, #fef9e7 100%);
             position: relative;
             overflow-x: hidden;
+            margin: 0;
+            padding: 0;
         }
         
         body::before {
@@ -68,10 +159,10 @@
         
         header {
             text-align: center;
-            padding: 40px 0;
-            border-bottom: 3px solid #63cdda;
-            margin-bottom: 40px;
-            background: linear-gradient(135deg, rgba(232, 245, 247, 0.6) 0%, rgba(254, 245, 247, 0.6) 100%);
+            padding: 80px 40px;
+            border-bottom: none;
+            margin-bottom: 0;
+            background: linear-gradient(135deg, rgba(232, 245, 247, 0.8) 0%, rgba(254, 245, 247, 0.8) 100%);
             position: relative;
             overflow: hidden;
         }
@@ -95,21 +186,21 @@
         }
         
         .profile-photo {
-            width: 180px;
-            height: 180px;
+            width: 200px;
+            height: 200px;
             border-radius: 50%;
             object-fit: cover;
             margin: 0 auto 25px;
             display: block;
-            border: 5px solid #63cdda;
-            box-shadow: 0 6px 16px rgba(99, 205, 218, 0.25);
+            border: 6px solid #63cdda;
+            box-shadow: 0 8px 25px rgba(99, 205, 218, 0.35);
             position: relative;
             z-index: 2;
         }
         
         h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
+            font-size: 3em;
+            margin-bottom: 15px;
             color: #1a252f;
             position: relative;
             z-index: 2;
@@ -124,10 +215,10 @@
         }
         
         .tagline {
-            font-size: 1.1em;
+            font-size: 1.3em;
             color: #7f8c8d;
             font-style: italic;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
         
         .contact-links {
@@ -142,10 +233,16 @@
             color: #2980b9;
             text-decoration: none;
             font-size: 0.95em;
+            padding: 8px 16px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.7);
+            transition: all 0.3s ease;
+            cursor: pointer;
         }
         
         .contact-links a:hover {
-            text-decoration: underline;
+            background: rgba(99, 205, 218, 0.3);
+            transform: translateY(-2px);
         }
         
         section {
@@ -367,9 +464,10 @@
         
         footer {
             text-align: center;
-            padding: 30px 0;
-            margin-top: 50px;
-            border-top: 2px solid #ecf0f1;
+            padding: 60px 40px;
+            margin-top: 0;
+            border-top: none;
+            background: linear-gradient(135deg, rgba(232, 245, 247, 0.5) 0%, rgba(254, 245, 247, 0.5) 100%);
             color: #7f8c8d;
             font-size: 0.9em;
         }
@@ -392,25 +490,93 @@
         }
         
         @media (max-width: 768px) {
-            .container {
-                padding: 15px;
+            .content-wrapper {
+                padding: 0 20px;
+            }
+            
+            header {
+                padding: 60px 20px;
+            }
+            
+            section {
+                padding: 40px 0;
             }
             
             h1 {
-                font-size: 2em;
+                font-size: 2.2em;
             }
             
             h2 {
-                font-size: 1.5em;
+                font-size: 1.6em;
             }
             
             .item-header {
                 flex-direction: column;
             }
+            
+            .profile-photo {
+                width: 160px;
+                height: 160px;
+            }
+            
+            .nav-menu {
+                top: 15px;
+                right: 15px;
+            }
+            
+            .menu-button {
+                width: 45px;
+                height: 45px;
+            }
+            
+            .menu-dropdown {
+                min-width: 180px;
+            }
         }
     </style>
+    <script>
+        function toggleMenu() {
+            const dropdown = document.getElementById('menuDropdown');
+            dropdown.classList.toggle('active');
+        }
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const menu = document.querySelector('.nav-menu');
+            const dropdown = document.getElementById('menuDropdown');
+            if (menu && !menu.contains(event.target)) {
+                dropdown.classList.remove('active');
+            }
+        });
+        
+        // Close menu when clicking a link
+        function closeMenu() {
+            document.getElementById('menuDropdown').classList.remove('active');
+        }
+    </script>
 </head>
 <body>
+    <!-- Navigation Menu -->
+    <div class="nav-menu">
+        <button class="menu-button" onclick="toggleMenu()">
+            <div class="menu-dots">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </button>
+        <div class="menu-dropdown" id="menuDropdown">
+            <a href="#about" onclick="closeMenu()">Research Interests</a>
+            <a href="#education" onclick="closeMenu()">Education</a>
+            <a href="#research" onclick="closeMenu()">Research Experience</a>
+            <a href="#publications" onclick="closeMenu()">Publications</a>
+            <a href="#conferences" onclick="closeMenu()">Conferences</a>
+            <a href="#training" onclick="closeMenu()">Training</a>
+            <a href="#skills" onclick="closeMenu()">Skills</a>
+            <a href="#awards" onclick="closeMenu()">Awards</a>
+        </div>
+    </div>
+
     <!-- Neuron SVG Decorations -->
     <svg class="neuron-decoration neuron-left" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
         <circle cx="100" cy="100" r="20" fill="#ff6b6b"/>
@@ -446,6 +612,7 @@
 
     <div class="container">
         <header>
+            <div class="content-wrapper">
             <img src="profile.jpg" alt="Abhishek Kumar" class="profile-photo">
             <h1>
                 <svg class="brain-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -467,9 +634,11 @@
                 <a href="https://www.linkedin.com/in/abhishek-kumar" target="_blank" rel="noopener noreferrer">🔗 LinkedIn</a>
                 <a href="tel:+917819992859">📱 +91 7819992859</a>
             </div>
+            </div>
         </header>
 
         <section id="about">
+            <div class="content-wrapper">
             <h2>Research Interests</h2>
             <div class="research-interests">
                 <div class="interests-list">
@@ -494,9 +663,11 @@
                     My interdisciplinary background in mathematics and ongoing studies in AI equip me to approach these challenges from both theoretical and applied perspectives. I believe the future of artificial intelligence lies in embracing the biological principles that have evolved over millions of years.
                 </p>
             </div>
+            </div>
         </section>
 
         <section id="education">
+            <div class="content-wrapper">
             <h2>Education</h2>
             <div class="education-item">
                 <div class="item-header">
@@ -516,9 +687,11 @@
                     <span class="date">Nov 2022 - Jun 2025</span>
                 </div>
             </div>
+            </div>
         </section>
 
         <section id="research">
+            <div class="content-wrapper">
             <h2>Research Experience</h2>
             <div class="experience-item">
                 <div class="item-header">
@@ -550,9 +723,11 @@
                 </ul>
                 <a href="https://github.com/Abhikumar199/spiking-neuron-simulation" class="github-link" target="_blank">View Repository →</a>
             </div>
+            </div>
         </section>
 
         <section id="publications">
+            <div class="content-wrapper">
             <h2>Publications</h2>
             <div class="publication-item">
                 <div class="publication-title">
@@ -561,9 +736,11 @@
                 <div>Abhishek Kumar</div>
                 <div class="publication-status">Manuscript under preparation / Abstract accepted</div>
             </div>
+            </div>
         </section>
 
         <section id="conferences">
+            <div class="content-wrapper">
             <h2>Conferences & Seminars</h2>
             <div class="experience-item">
                 <div class="item-header">
@@ -607,9 +784,11 @@
                     <li>Engaged in 6-day program focused on foundational concepts in advanced mathematics</li>
                 </ul>
             </div>
+            </div>
         </section>
 
         <section id="training">
+            <div class="content-wrapper">
             <h2>Training & Certifications</h2>
             <div class="experience-item">
                 <h3>Computational Neuroscience</h3>
@@ -631,9 +810,11 @@
                 <span class="date">Dec 2025</span>
                 <p style="margin-top: 10px; padding-left: 20px;">National Short-Term Training Program</p>
             </div>
+            </div>
         </section>
 
         <section id="skills">
+            <div class="content-wrapper">
             <h2>Technical Skills</h2>
             <div class="skills-grid">
                 <div class="skill-category">
@@ -653,9 +834,11 @@
                     <p>Computational Neuroscience, Machine Learning, Deep Learning, Neural Modeling, Bioinformatics</p>
                 </div>
             </div>
+            </div>
         </section>
 
         <section id="awards">
+            <div class="content-wrapper">
             <h2>Achievements & Awards</h2>
             <div class="award-item">
                 <h3>National Yoga Championship - Runner Up</h3>
@@ -668,9 +851,11 @@
                 <span class="date">June 2020</span>
                 <p style="margin-top: 5px;">Award for outstanding achievements in academics</p>
             </div>
+            </div>
         </section>
 
         <footer>
+            <div class="content-wrapper">
             <div class="research-quote">
                 <p class="quote-text">
                     "The beauty of the brain lies not in its individual neurons, but in the symphony of their connections. Each spike, each synapse, tells a story of computation that we are only beginning to decipher. Understanding this biological intelligence is not just a scientific pursuit—it is the key to creating artificial systems that can truly think, adapt, and learn."
@@ -680,6 +865,7 @@
             
             <p>© 2026 Abhishek Kumar. All rights reserved.</p>
             <p style="margin-top: 10px;">Interested in collaboration? Feel free to reach out!</p>
+            </div>
         </footer>
     </div>
 </body>
