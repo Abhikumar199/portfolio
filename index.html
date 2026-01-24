@@ -344,6 +344,36 @@
             line-height: 1.9;
         }
         
+        .research-vision {
+            background: linear-gradient(135deg, rgba(232, 245, 247, 0.5) 0%, rgba(254, 249, 231, 0.5) 100%);
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 5px solid #63cdda;
+            margin: 35px 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .research-vision h3 {
+            color: #2c3e50;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .research-vision h3::before {
+            content: '🎯';
+            font-size: 1.2em;
+        }
+        
+        .research-vision p {
+            color: #34495e;
+            line-height: 1.9;
+            font-size: 1.05em;
+            text-align: justify;
+        }
+        
         .about-section p {
             margin-bottom: 15px;
         }
@@ -366,6 +396,7 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
             border-left: 4px solid #63cdda;
+            text-align: left;
         }
         
         .project-card:hover {
@@ -390,14 +421,36 @@
         .project-title {
             font-size: 1.4em;
             color: #2c3e50;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             font-weight: bold;
+            text-align: left;
+        }
+        
+        .project-subtitle {
+            color: #7f8c8d;
+            font-style: italic;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+            text-align: left;
         }
         
         .project-description {
-            color: #7f8c8d;
-            line-height: 1.6;
+            color: #34495e;
+            line-height: 1.7;
             margin-bottom: 15px;
+            text-align: left;
+        }
+        
+        .project-highlights {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+        
+        .project-highlights li {
+            color: #34495e;
+            line-height: 1.8;
+            margin-bottom: 10px;
+            text-align: left;
         }
         
         .project-tech {
@@ -625,6 +678,7 @@
         
         .education-item, .experience-item, .publication-item {
             margin-bottom: 30px;
+            text-align: left;
         }
         
         .item-header {
@@ -633,6 +687,7 @@
             align-items: baseline;
             margin-bottom: 5px;
             flex-wrap: wrap;
+            text-align: left;
         }
         
         .degree, .position {
@@ -654,10 +709,12 @@
         .description {
             margin-top: 10px;
             padding-left: 20px;
+            text-align: left;
         }
         
         .description li {
             margin-bottom: 8px;
+            text-align: left;
         }
         
         .publication-title {
@@ -890,7 +947,9 @@
                             }
                         });
                         
-                        if (response.ok) {
+                        const data = await response.json();
+                        
+                        if (response.ok || data.success) {
                             formMessage.textContent = '✓ Thank you! Your message has been sent successfully. I\'ll get back to you soon!';
                             formMessage.className = 'form-message success';
                             formMessage.style.display = 'block';
@@ -1029,6 +1088,13 @@
                     My interdisciplinary background in mathematics and ongoing studies in AI equip me to approach these challenges from both theoretical and applied perspectives. I believe the future of artificial intelligence lies in embracing the biological principles that have evolved over millions of years.
                 </p>
             </div>
+            
+            <div class="research-vision">
+                <h3>Research Vision</h3>
+                <p>
+                    My research interests focus on computational neuroscience and neuromorphic computing, with an emphasis on brain-inspired models for efficient intelligence. I am interested in understanding how biological principles such as spike-based communication, synaptic plasticity, and neural dynamics can be translated into spiking neural networks and low-power learning systems. Through research internships and project-based work, I have developed experience in neural modeling, machine learning, and signal analysis. My long-term goal is to pursue doctoral research that integrates theoretical modeling with practical neuromorphic and AI applications.
+                </p>
+            </div>
             </div>
         </section>
 
@@ -1095,6 +1161,30 @@
         <section id="projects">
             <div class="content-wrapper">
             <h2>Key Projects</h2>
+            
+            <div class="project-card">
+                <div class="project-image">⚡</div>
+                <div class="project-title">Ultra-Low-Power Edge Intelligence for Real-World Anomaly Detection Using SNN</div>
+                <div class="project-subtitle">Spiking Neural Networks, Edge AI, Embedded Systems</div>
+                <div class="project-description">
+                    Designing an event-driven, on-device anomaly detection system for identifying abnormal patterns indicative of sewage clogging.
+                </div>
+                <ul class="project-highlights">
+                    <li>Utilizing environmental and physical sensor signals to detect flow irregularities and blockage-related events at the edge</li>
+                    <li>Exploring spike-based encoding and spiking neural network inference to enable ultra-low-power, continuous monitoring</li>
+                    <li>Project currently under development; implementation details and experimental results will be shared upon completion</li>
+                </ul>
+                <div class="project-tech">
+                    <span class="tech-tag">Spiking Neural Networks</span>
+                    <span class="tech-tag">Edge AI</span>
+                    <span class="tech-tag">Embedded Systems</span>
+                    <span class="tech-tag">Anomaly Detection</span>
+                    <span class="tech-tag">IoT</span>
+                </div>
+                <div style="margin-top: 15px; padding: 10px; background: rgba(255, 195, 113, 0.1); border-left: 3px solid #ffc371; border-radius: 5px;">
+                    <strong style="color: #d68910;">Status:</strong> <span style="color: #7f8c8d;">Ongoing Development</span>
+                </div>
+            </div>
             
             <div class="project-card">
                 <div class="project-image">🧠</div>
@@ -1304,7 +1394,9 @@
                     <p>Interested in collaboration, research opportunities, or have questions about my work? I'd love to hear from you!</p>
                 </div>
                 
-                <form class="contact-form" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+                    <input type="hidden" name="access_key" value="688a826a-ea8e-4e3b-81d7-c0fabd6922e1">
+                    
                     <div class="form-group">
                         <label for="name">Your Name *</label>
                         <input type="text" id="name" name="name" required placeholder="Enter your full name">
@@ -1352,13 +1444,5 @@
         </footer>
     </div>
     
-    <!-- Google Analytics (Optional) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-XXXXXXXXXX'); // Replace with your Google Analytics ID
-    </script>
 </body>
 </html>
