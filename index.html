@@ -182,6 +182,13 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            width: 100%;
+            max-width: 1200px;
+        }
+        
+        header .content-wrapper > * {
+            margin-left: auto;
+            margin-right: auto;
         }
         
         header::before {
@@ -222,11 +229,13 @@
             position: relative;
             z-index: 2;
             text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
+            display: block;
+            width: 100%;
+        }
+        
+        h1 svg {
+            display: inline-block;
+            vertical-align: middle;
         }
         
         .brain-icon {
@@ -241,21 +250,25 @@
             font-size: 1.3em;
             color: #7f8c8d;
             font-style: italic;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             text-align: center;
+            display: block;
+            width: 100%;
         }
         
         .bio-tagline {
-            font-size: 1.1em;
+            font-size: 1.05em;
             color: #34495e;
             font-weight: 500;
-            margin-bottom: 25px;
-            padding: 15px 30px;
-            background: rgba(255, 255, 255, 0.6);
+            margin: 0 auto 25px;
+            padding: 12px 25px;
+            background: rgba(255, 255, 255, 0.7);
             border-radius: 30px;
-            display: inline-block;
+            display: block;
             border: 2px solid rgba(99, 205, 218, 0.3);
             text-align: center;
+            max-width: fit-content;
+            width: auto;
         }
         
         .bio-tagline span {
@@ -267,21 +280,25 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 20px;
+            gap: 15px;
             flex-wrap: wrap;
-            margin-top: 15px;
+            margin: 20px auto;
+            width: 100%;
         }
         
         .contact-links a {
             color: #2980b9;
             text-decoration: none;
             font-size: 0.95em;
-            padding: 8px 16px;
-            border-radius: 20px;
-            background: rgba(255, 255, 255, 0.7);
+            padding: 10px 18px;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.8);
             transition: all 0.3s ease;
             cursor: pointer;
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            white-space: nowrap;
         }
         
         .contact-links a:hover {
@@ -295,18 +312,20 @@
         }
         
         .cv-download {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 30px;
+            display: block;
+            margin: 25px auto 0;
+            padding: 14px 35px;
             background: linear-gradient(135deg, #ff6b6b 0%, #ff9a9a 100%);
             color: white;
             text-decoration: none;
-            border-radius: 30px;
+            border-radius: 35px;
             font-weight: bold;
-            font-size: 1em;
+            font-size: 1.05em;
             box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
             transition: all 0.3s ease;
             text-align: center;
+            max-width: fit-content;
+            width: auto;
         }
         
         .cv-download:hover {
@@ -828,11 +847,19 @@
             align-items: center;
             justify-content: center;
             text-align: center;
+            width: 100%;
+            max-width: 1000px;
         }
         
         footer p {
             text-align: center;
-            margin: 5px 0;
+            margin: 5px auto;
+            width: 100%;
+        }
+        
+        footer > .content-wrapper > div {
+            width: 100%;
+            text-align: center;
         }
         
         .github-link {
@@ -1440,22 +1467,22 @@
                     <input type="hidden" name="access_key" value="688a826a-ea8e-4e3b-81d7-c0fabd6922e1">
                     
                     <div class="form-group">
-                        <label for="name">Your Name *</label>
+                        <label for="name">Your Name</label>
                         <input type="text" id="name" name="name" required placeholder="Enter your full name">
                     </div>
                     
                     <div class="form-group">
-                        <label for="email">Your Email *</label>
+                        <label for="email">Your Email</label>
                         <input type="email" id="email" name="email" required placeholder="your.email@example.com">
                     </div>
                     
                     <div class="form-group">
-                        <label for="subject">Subject *</label>
+                        <label for="subject">Subject</label>
                         <input type="text" id="subject" name="subject" required placeholder="What is this regarding?">
                     </div>
                     
                     <div class="form-group">
-                        <label for="message">Message *</label>
+                        <label for="message">Message</label>
                         <textarea id="message" name="message" required placeholder="Tell me more about your inquiry..."></textarea>
                     </div>
                     
@@ -1480,8 +1507,10 @@
                 <p class="quote-author">— Reflections on Neural Computation</p>
             </div>
             
-            <p>© 2026 Abhishek Kumar. All rights reserved.</p>
-            <p style="margin-top: 10px;">Interested in collaboration? Feel free to reach out!</p>
+            <div style="margin-top: 40px; text-align: center;">
+                <p style="margin: 10px 0;">© 2026 Abhishek Kumar. All rights reserved.</p>
+                <p style="margin: 10px 0;">Interested in collaboration? Feel free to reach out!</p>
+            </div>
             </div>
         </footer>
     </div>
