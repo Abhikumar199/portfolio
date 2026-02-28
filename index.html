@@ -841,6 +841,48 @@
             box-shadow: 0 3px 10px rgba(255, 195, 113, 0.2);
         }
 
+        /* Hackathon Card Special Styles */
+        .hackathon-card {
+            border-left: 4px solid #a29bfe !important;
+        }
+
+        .hackathon-card:hover {
+            box-shadow: 0 8px 25px rgba(162, 155, 254, 0.3) !important;
+        }
+
+        .pipeline-step {
+            background: rgba(162,155,254,0.15);
+            border: 1px solid rgba(162,155,254,0.4);
+            border-radius: 8px;
+            padding: 6px 12px;
+            font-size: 0.85em;
+            color: #2c3e50;
+            white-space: nowrap;
+        }
+
+        .pipeline-arrow {
+            color: #a29bfe;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .stat-card {
+            border-radius: 10px;
+            padding: 12px;
+            text-align: center;
+        }
+
+        .stat-card .stat-value {
+            font-size: 1.4em;
+            font-weight: bold;
+        }
+
+        .stat-card .stat-label {
+            font-size: 0.8em;
+            color: #7f8c8d;
+            margin-top: 4px;
+        }
+
         footer {
             text-align: center;
             padding: 60px 20px;
@@ -954,6 +996,11 @@
                 font-size: 0.85em;
                 padding: 6px 12px;
             }
+
+            .pipeline-step {
+                font-size: 0.75em;
+                padding: 5px 8px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -994,7 +1041,6 @@
             dropdown.classList.toggle('active');
         }
 
-        // Close menu when clicking outside
         document.addEventListener('click', function (event) {
             const menu = document.querySelector('.nav-menu');
             const dropdown = document.getElementById('menuDropdown');
@@ -1003,12 +1049,10 @@
             }
         });
 
-        // Close menu when clicking a link
         function closeMenu() {
             document.getElementById('menuDropdown').classList.remove('active');
         }
 
-        // Contact Form Handling
         document.addEventListener('DOMContentLoaded', function () {
             const form = document.getElementById('contactForm');
             const formMessage = document.getElementById('formMessage');
@@ -1077,6 +1121,7 @@
             <a href="#projects" onclick="closeMenu()">Key Projects</a>
             <a href="#publications" onclick="closeMenu()">Publications</a>
             <a href="#conferences" onclick="closeMenu()">Conferences</a>
+            <a href="#hackathons" onclick="closeMenu()">Hackathons & Competitions</a>
             <a href="#training" onclick="closeMenu()">Training</a>
             <a href="#skills" onclick="closeMenu()">Skills</a>
             <a href="#awards" onclick="closeMenu()">Awards</a>
@@ -1391,7 +1436,7 @@
                         Architectures, and Applications"
                     </div>
                     <div>Abhishek Kumar</div>
-                    <div class="publication-status">Manuscript under preparation / Abstract accepted</div>
+                    <div class="publication-status">Manuscript under final review / Paper Presented</div>
                 </div>
             </div>
         </section>
@@ -1402,7 +1447,7 @@
                 <div class="experience-item">
                     <div class="item-header">
                         <div>
-                            <h3>ICMSCI-2026 - Oral Presentation (Upcoming)</h3>
+                            <h3>ICMSCI-2026 - Paper Presentation</h3>
                             <div class="organization">International Conference on Mathematical Sciences and
                                 Computational Intelligence</div>
                         </div>
@@ -1416,11 +1461,6 @@
                         <li>Department of Mathematics presentation in collaboration with leading research institutions
                         </li>
                     </ul>
-                    <div
-                        style="margin-top: 10px; padding: 10px; background: rgba(76, 209, 55, 0.1); border-left: 3px solid #4cd137; border-radius: 5px;">
-                        <strong style="color: #27ae60;">Status:</strong> <span style="color: #2c3e50;">Abstract Accepted
-                        </span>
-                    </div>
                 </div>
 
                 <div class="experience-item">
@@ -1469,6 +1509,105 @@
                 </div>
             </div>
         </section>
+
+        <!-- ===== NEW: HACKATHONS & COMPETITIONS SECTION ===== -->
+        <section id="hackathons">
+            <div class="content-wrapper">
+                <h2>Hackathons & Competitions</h2>
+
+                <div class="project-card hackathon-card" style="position: relative; overflow: hidden;">
+                    <!-- Top badge -->
+                    <div style="position: absolute; top: 0; right: 0; background: linear-gradient(135deg, #a29bfe, #74b9ff); color: white; font-size: 0.75em; font-weight: bold; padding: 6px 18px; border-radius: 0 12px 0 12px; letter-spacing: 0.5px; z-index: 2;">
+                        🏆 NIT HACKATHON
+                    </div>
+
+                    <div class="project-image" style="background: linear-gradient(135deg, rgba(162,155,254,0.12) 0%, rgba(116,185,255,0.12) 100%); border: 2px dashed rgba(162,155,254,0.4);">🛡️</div>
+
+                    <div class="project-title">SmartShield: Lightweight On-Device SMS Fraud Detection Using Spiking Neural Networks</div>
+                    <div class="project-subtitle">Team: Abhishek Kumar &nbsp;·&nbsp; Ayush Kumar Dwivedi &nbsp;·&nbsp; Hitesh Pratap Singh</div>
+
+                    <div class="project-description">
+                        A privacy-preserving, fully on-device SMS fraud detection system that combats smishing, OTP fraud, and evolving scam campaigns. The system combines rule-based filtering with a Spiking Neural Network (SNN) for real-time, energy-efficient inference — with zero cloud dependency and complete user data confidentiality.
+                    </div>
+
+                    <!-- Problem Statement -->
+                    <div style="margin: 18px 0 8px; font-weight: bold; color: #2c3e50; font-size: 0.95em;">🎯 Problem Statement</div>
+                    <div class="project-description" style="margin-bottom: 5px;">
+                        Traditional keyword-based SMS filters fail against evolving zero-day attacks, while cloud-based deep learning solutions introduce latency, privacy risks, and high energy consumption. SmartShield enables adaptive, zero-network-latency fraud detection on smartphones using event-driven neuromorphic intelligence.
+                    </div>
+
+                    <!-- Key Innovations -->
+                    <div style="margin: 18px 0 8px; font-weight: bold; color: #2c3e50; font-size: 0.95em;">⚡ Key Innovations</div>
+                    <ul class="project-highlights">
+                        <li><strong>Latency-Based Spike Encoding:</strong> Features are converted into temporal spike trains using <em>t<sub>i</sub> = T<sub>max</sub>(1 − x<sub>i</sub>)</em>, enabling sparse, event-driven neuromorphic computation.</li>
+                        <li><strong>1D Convolutional SNN Classifier</strong> with Leaky Integrate-and-Fire (LIF) neurons — classifying messages into four output classes: Phishing, Spam, Suspicious, and Safe.</li>
+                        <li><strong>Hybrid Dataset Strategy:</strong> 80% UCI SMS Spam Collection + 20% custom Indian-context fraud samples covering UPI fraud, KYC scams, OTP theft, and delivery scams.</li>
+                        <li><strong>Multi-Modal Feature Extraction:</strong> TF-IDF (top 300 tokens), URL presence, OTP pattern detection, digit ratio, urgency keyword score, call duration anomaly, and sender irregularity flags.</li>
+                        <li><strong>Fully On-Device Deployment:</strong> ONNX export + ONNX Runtime Mobile on Android (React Native + Kotlin/Swift) — no sensitive data ever leaves the device.</li>
+                    </ul>
+
+                    <!-- System Pipeline -->
+                    <div style="margin: 20px 0 10px; font-weight: bold; color: #2c3e50; font-size: 0.95em;">⚙️ System Pipeline</div>
+                    <div style="display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-bottom: 18px;">
+                        <div class="pipeline-step">📱 SMS Interception</div>
+                        <span class="pipeline-arrow">→</span>
+                        <div class="pipeline-step">🔧 Feature Extraction</div>
+                        <span class="pipeline-arrow">→</span>
+                        <div class="pipeline-step">📋 Rule Pre-Filter</div>
+                        <span class="pipeline-arrow">→</span>
+                        <div class="pipeline-step">⚡ Spike Encoding</div>
+                        <span class="pipeline-arrow">→</span>
+                        <div class="pipeline-step">🧠 SNN Classifier</div>
+                        <span class="pipeline-arrow">→</span>
+                        <div class="pipeline-step">🚨 User Alert</div>
+                    </div>
+
+                    <!-- Performance Targets -->
+                    <div style="margin: 18px 0 10px; font-weight: bold; color: #2c3e50; font-size: 0.95em;">📊 Performance Targets</div>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; margin-bottom: 18px;">
+                        <div class="stat-card" style="background: rgba(162,155,254,0.1); border: 1px solid rgba(162,155,254,0.3);">
+                            <div class="stat-value" style="color: #a29bfe;">&gt; 0.90</div>
+                            <div class="stat-label">F1-Score</div>
+                        </div>
+                        <div class="stat-card" style="background: rgba(99,205,218,0.1); border: 1px solid rgba(99,205,218,0.3);">
+                            <div class="stat-value" style="color: #63cdda;">&lt; 100ms</div>
+                            <div class="stat-label">Inference Latency</div>
+                        </div>
+                        <div class="stat-card" style="background: rgba(255,107,107,0.1); border: 1px solid rgba(255,107,107,0.3);">
+                            <div class="stat-value" style="color: #ff6b6b;">↓ MACs</div>
+                            <div class="stat-label">vs ANN Baseline</div>
+                        </div>
+                        <div class="stat-card" style="background: rgba(255,195,113,0.1); border: 1px solid rgba(255,195,113,0.3);">
+                            <div class="stat-value" style="color: #ffc371;">0 Cloud</div>
+                            <div class="stat-label">Data Dependency</div>
+                        </div>
+                    </div>
+
+                    <!-- Tech Stack -->
+                    <div class="project-tech">
+                        <span class="tech-tag" style="background: rgba(162,155,254,0.15); border-color: rgba(162,155,254,0.3);">Spiking Neural Networks</span>
+                        <span class="tech-tag" style="background: rgba(162,155,254,0.15); border-color: rgba(162,155,254,0.3);">PyTorch + snnTorch</span>
+                        <span class="tech-tag" style="background: rgba(162,155,254,0.15); border-color: rgba(162,155,254,0.3);">Brian2</span>
+                        <span class="tech-tag" style="background: rgba(162,155,254,0.15); border-color: rgba(162,155,254,0.3);">ONNX Runtime Mobile</span>
+                        <span class="tech-tag" style="background: rgba(162,155,254,0.15); border-color: rgba(162,155,254,0.3);">React Native</span>
+                        <span class="tech-tag" style="background: rgba(162,155,254,0.15); border-color: rgba(162,155,254,0.3);">Android (Kotlin)</span>
+                        <span class="tech-tag" style="background: rgba(162,155,254,0.15); border-color: rgba(162,155,254,0.3);">Neuromorphic AI</span>
+                        <span class="tech-tag" style="background: rgba(162,155,254,0.15); border-color: rgba(162,155,254,0.3);">Edge AI</span>
+                        <span class="tech-tag" style="background: rgba(162,155,254,0.15); border-color: rgba(162,155,254,0.3);">Privacy-Preserving ML</span>
+                        <span class="tech-tag" style="background: rgba(162,155,254,0.15); border-color: rgba(162,155,254,0.3);">Cybersecurity</span>
+                    </div>
+
+                    <!-- Status footer -->
+                    <div style="margin-top: 18px; padding: 12px 15px; background: rgba(162,155,254,0.08); border-left: 3px solid #a29bfe; border-radius: 6px; display: flex; flex-wrap: wrap; gap: 15px; align-items: center;">
+                        <div><strong style="color: #6c5ce7;">Venue:</strong> <span style="color: #7f8c8d;">NIT Hackathon</span></div>
+                        <div><strong style="color: #6c5ce7;">Team Size:</strong> <span style="color: #7f8c8d;">3 Members</span></div>
+                        <div><strong style="color: #6c5ce7;">Status:</strong> <span style="color: #27ae60; font-weight: bold;">✓ Project Submitted</span></div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- ===== END HACKATHONS SECTION ===== -->
 
         <section id="training">
             <div class="content-wrapper">
