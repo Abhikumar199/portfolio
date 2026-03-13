@@ -1524,10 +1524,12 @@
                     <div class="project-image" style="background: linear-gradient(135deg, rgba(162,155,254,0.12) 0%, rgba(116,185,255,0.12) 100%); border: 2px dashed rgba(162,155,254,0.4);">🛡️</div>
 
                     <div class="project-title">SmartShield: Lightweight On-Device SMS Fraud Detection Using Spiking Neural Networks</div>
-                    <div class="project-subtitle">Team: Abhishek Kumar (Team lead) &nbsp;·&nbsp; Ayush Kumar Dwivedi &nbsp;·&nbsp; Hitesh Pratap Singh</div>
+                    <div class="project-subtitle">Team: Abhishek Kumar (Team lead) &nbsp;·&nbsp; Hitesh Pratap Singh</div>
 
                     <div class="project-description">
                         A privacy-preserving, fully on-device SMS fraud detection system that combats smishing, OTP fraud, and evolving scam campaigns. The system combines rule-based filtering with a Spiking Neural Network (SNN) for real-time, energy-efficient inference — with zero cloud dependency and complete user data confidentiality.
+                        While developing an SMS fraud detection application, our experiments showed that the SNN model performs ~444 times fewer operations and achieves ~14,000 times lower estimated energy consumption than ANN models, highlighting its potential for energy-efficient on-device security.
+
                     </div>
 
                     <!-- Problem Statement -->
@@ -1540,10 +1542,10 @@
                     <div style="margin: 18px 0 8px; font-weight: bold; color: #2c3e50; font-size: 0.95em;">⚡ Key Innovations</div>
                     <ul class="project-highlights">
                         <li><strong>Latency-Based Spike Encoding:</strong> Features are converted into temporal spike trains using <em>t<sub>i</sub> = T<sub>max</sub>(1 − x<sub>i</sub>)</em>, enabling sparse, event-driven neuromorphic computation.</li>
-                        <li><strong>1D Convolutional SNN Classifier</strong> with Leaky Integrate-and-Fire (LIF) neurons — classifying messages into four output classes: Phishing, Spam, Suspicious, and Safe.</li>
-                        <li><strong>Hybrid Dataset Strategy:</strong> 80% UCI SMS Spam Collection + 20% custom Indian-context fraud samples covering UPI fraud, KYC scams, OTP theft, and delivery scams.</li>
-                        <li><strong>Multi-Modal Feature Extraction:</strong> TF-IDF (top 300 tokens), URL presence, OTP pattern detection, digit ratio, urgency keyword score, call duration anomaly, and sender irregularity flags.</li>
-                        <li><strong>Fully On-Device Deployment:</strong> ONNX export + ONNX Runtime Mobile on Android (React Native + Kotlin/Swift) — no sensitive data ever leaves the device.</li>
+                        <li><strong>1D Convolutional SNN Classifier</strong> with Leaky Integrate-and-Fire (LIF) neurons — classifying messages into  output classes: Spam and Safe </li>
+                        <li><strong>Hybrid Dataset Strategy:</strong>  UCI SMS Spam Collection +  custom Indian-context fraud samples covering UPI fraud, KYC scams, OTP theft, and delivery scams.</li>
+                        <li><strong>Multi-Modal Feature Extraction:</strong> TF-IDF (top 900 tokens), URL presence, OTP pattern detection, digit ratio, urgency keyword score, call duration anomaly, and sender irregularity flags.</li>
+                        <li><strong>On-Device Deployment (Prototype): </strong> Kotlin Android integration with a PyTorch .pt SNN model, with ongoing work toward ONNX optimization for efficient mobile inference</li>
                     </ul>
 
                     <!-- System Pipeline -->
@@ -1599,9 +1601,9 @@
 
                     <!-- Status footer -->
                     <div style="margin-top: 18px; padding: 12px 15px; background: rgba(162,155,254,0.08); border-left: 3px solid #a29bfe; border-radius: 6px; display: flex; flex-wrap: wrap; gap: 15px; align-items: center;">
-                        <div><strong style="color: #6c5ce7;">Venue:</strong> <span style="color: #7f8c8d;">NIT Hackathon</span></div>
-                        <div><strong style="color: #6c5ce7;">Team Size:</strong> <span style="color: #7f8c8d;">3 Members</span></div>
-                        <div><strong style="color: #6c5ce7;">Status:</strong> <span style="color: #27ae60; font-weight: bold;">✓ Project Submitted</span></div>
+                        <div><strong style="color: #6c5ce7;">Venue:</strong> <span style="color: #7f8c8d;">NIT Hamirpur</span></div>
+                        <div><strong style="color: #6c5ce7;">Team Size:</strong> <span style="color: #7f8c8d;">2 Members</span></div>
+                        <div><strong style="color: #6c5ce7;">Status:</strong> <span style="color: #27ae60; font-weight: bold;">✓ Completed - Prototype Stage</span></div>
                     </div>
                 </div>
 
